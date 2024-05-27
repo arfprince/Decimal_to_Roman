@@ -89,10 +89,13 @@ function showOutput(currentNumber)
         outputBox.classList.remove("hidden");
     }
 }
+let state=0;
 number.addEventListener("keyup", e => {
+    if(state)
         convertBtn.click();
 });
 convertBtn.addEventListener("click", () => {
+    state=1;
     outputBox.classList.add("hidden");
     outputBox.classList.remove("wrongBox");
     outputBox.classList.remove("rightBox");
