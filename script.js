@@ -81,8 +81,8 @@ function showOutput(currentNumber)
         output.classList.add("wrongBox");
         output.classList.remove("hidden");
     }
-    else if(currentNumber>3999){
-        output.innerHTML=`Please enter a number less than or equal to 3999`;
+    else if(currentNumber>9999){
+        output.innerHTML=`Please enter a number less than or equal to 9999`;
         output.classList.add("wrongBox");
         output.classList.remove("hidden");
     }
