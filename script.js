@@ -72,7 +72,6 @@ function doRoman(x) {
 }
 function showOutput(currentNumber)
 {
-    console.log(currentNumber);
     if(currentNumber<=0){
         output.innerHTML="Please enter a number greater than or equal to 1";
         outputBox.classList.add("wrongBox");
