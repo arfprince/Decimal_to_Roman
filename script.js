@@ -1,7 +1,6 @@
 const number=document.querySelector("#number");
 const convertBtn=document.querySelector("#convert-btn");
 const output=document.querySelector("#output");
-const outputBox=document.querySelector("#outputBox");
 function doRoman(x) {
     let ans="";
 
@@ -72,22 +71,28 @@ function doRoman(x) {
 }
 function showOutput(currentNumber)
 {
-    if(currentNumber<=0){
-        output.innerHTML="Please enter a number greater than or equal to 1";
-        outputBox.classList.add("wrongBox");
-        outputBox.classList.remove("hidden");
+    if(!currentNumber){
+        output.innerHTML=`Please enter a valid number`;
+        output.classList.add("wrongBox");
+        output.classList.remove("hidden");
+    }
+    else if(currentNumber<=0){
+        output.innerHTML=`Please enter a number greater than or equal to 1`;
+        output.classList.add("wrongBox");
+        output.classList.remove("hidden");
     }
     else if(currentNumber>3999){
-        output.innerHTML="Please enter a number less than or equal to 3999";
-        outputBox.classList.add("wrongBox");
-        outputBox.classList.remove("hidden");
+        output.innerHTML=`Please enter a number less than or equal to 3999`;
+        output.classList.add("wrongBox");
+        output.classList.remove("hidden");
     }
     else{
         const roman=doRoman(currentNumber);
-        output.innerHTML=roman;
-        outputBox.classList.add("rightBox");
-        outputBox.classList.remove("hidden");
+        output.innerHTML=`${roman}`;
+        output.classList.add("rightBox");
+        output.classList.remove("hidden");
     }
+
 }
 let state=0;
 number.addEventListener("keyup", e => {
@@ -95,9 +100,9 @@ number.addEventListener("keyup", e => {
         convertBtn.click();
 });
 convertBtn.addEventListener("click", () => {
-    state=1;
-    outputBox.classList.add("hidden");
-    outputBox.classList.remove("wrongBox");
-    outputBox.classList.remove("rightBox");
+    output.classList.add("hidden");
+    output.classList.remove("wrongBox");
+    output.classList.remove("rightBox");
     showOutput(Number(number.value));
+    state=1;
 });
